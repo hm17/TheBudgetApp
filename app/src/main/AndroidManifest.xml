@@ -16,7 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddBudgetActivity"></activity>
+        <activity android:name=".AddBudgetActivity" />
+        <activity android:name=".AddTransactionActivity" />
+        <activity android:name=".ViewBudgetActivity"></activity>
     </application>
 
 </manifest>

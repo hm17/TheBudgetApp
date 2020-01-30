@@ -9,35 +9,37 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/budget_activity"
+        android:text="@string/transaction_Activity"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_gravity="center"
         android:padding="16dp"
         />
 
     <EditText
-        android:id="@+id/startingBalance"
-        android:hint="@string/input_startBalance"
+        android:hint="@string/input_transaction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"/>
 
     <EditText
-        android:id="@+id/budgetName"
-        android:hint="@string/input_name"
+        android:hint="@string/input_vendor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
-        android:id="@+id/budgetCategory"
         android:hint="@string/input_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/saveBudget"
-        android:text="@string/button_save"
+    <DatePicker
+        android:id="@+id/transactionDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="saveBudget"/>
+        android:datePickerMode="spinner"
+        android:calendarViewShown="false"/>
+
+    <Button
+        android:text="@string/button_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </LinearLayout>

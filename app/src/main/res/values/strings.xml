@@ -4,4 +4,15 @@
     <string name="start_here">Click here to start</string>
 
     <string name="budget_activity">Create a new Budget</string>
+    <string name="transaction_Activity">Add a new Transaction</string>
+
+    <string name="input_startBalance">Enter Starting Balance</string>
+    <string name="input_name">Enter Budget Name</string>
+
+    <string name="input_transaction">Enter Transaction Amount</string>
+    <string name="input_vendor">Enter Vendor</string>
+    <string name="input_category">Enter Category</string>
+
+    <string name="button_save">SAVE</string>
+    <string name="button_add">ADD</string>
 </resources>
