@@ -7,6 +7,15 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/start"
+        android:text="$100"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center|top"
+        android:padding="16dp"/>
+
+    <TextView
         android:id="@+id/viewStartingBalance"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
