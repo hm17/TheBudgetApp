@@ -1,8 +1,9 @@
 package com.hm.thebudgetapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 public class ViewBudgetActivity extends Activity {
@@ -20,13 +21,34 @@ public class ViewBudgetActivity extends Activity {
     }
 
     private void populateBudgetView() {
-        TextView category = (TextView) findViewById(R.id.viewBudgetCategory);
+        TextView name = (TextView) findViewById(R.id.viewBudgetName);
+        setValueFromBundle(name, NAME);
 
-        String catVal = getIntent().getStringExtra(CATEGORY);
-        if(catVal != null) {
-            Log.v("ViewBudget", catVal);
-            category.setText(catVal);
+        TextView startingBalance = (TextView) findViewById(R.id.viewStartingBalance);
+        setValueFromBundle(startingBalance, START_BALANCE);
+
+
+        TextView category = (TextView) findViewById(R.id.viewBudgetCategory);
+        setValueFromBundle(category, CATEGORY);
+    }
+
+    private void setValueFromBundle(TextView view, String key) {
+
+        String text = "";
+
+        // Get value from Bundle
+        String value = getIntent().getStringExtra(key);
+        if(value != null) {
+            text = value;
         }
 
+        // Set it on view
+        view.setText(text);
+    }
+
+
+    public void addTransaction(View view) {
+        Intent intent = new Intent(this, AddTransactionActivity.class);
+        startActivity(intent);
     }
 }

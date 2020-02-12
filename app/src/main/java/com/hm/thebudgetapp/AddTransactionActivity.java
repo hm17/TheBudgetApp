@@ -1,9 +1,9 @@
 package com.hm.thebudgetapp;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 
-public class AddTransactionActivity extends AppCompatActivity {
+public class AddTransactionActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

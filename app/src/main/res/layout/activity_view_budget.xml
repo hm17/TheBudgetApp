@@ -6,29 +6,42 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/start"
-        android:text="$100"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center|top"
-        android:padding="16dp"/>
 
     <TextView
         android:id="@+id/viewStartingBalance"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center|top"
+        android:padding="16dp"/>
+
+    <Button
+        android:id="@+id/addTransactionBtn"
+        android:text="+"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="addTransaction"
+        android:layout_gravity="center"
+        android:padding="16dp"/>
 
     <TextView
         android:id="@+id/viewBudgetName"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="left|top"
+        android:padding="16dp"/>
 
     <TextView
         android:id="@+id/viewBudgetCategory"
-        android:text="OLD Text"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="right|top"
+        android:padding="16dp" />
+
 
 </LinearLayout>

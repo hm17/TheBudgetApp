@@ -1,29 +1,51 @@
 package com.hm.thebudgetapp;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SectionsPagerAdapter pagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        ViewPager pager = (ViewPager) findViewById(R.id.pager);
+        pager.setAdapter(pagerAdapter);
     }
+
 
     public void createNewBudget(View view) {
         Intent intent = new Intent(this, AddBudgetActivity.class);
         startActivity(intent);
     }
 
-    public void launchBudget(View view) {
-        Toast msg = Toast.makeText(this, "YO!", Toast.LENGTH_SHORT);
-        msg.show();
+    private class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-        Intent intent = new Intent(this, ViewBudgetActivity.class);
-        startActivity(intent);
+        public SectionsPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public int getCount() {
+            return 1; // Only one page for now
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            switch (position) {
+                case 0:
+                    return new TopFragment();
+            }
+
+            return null;
+        }
     }
 }
