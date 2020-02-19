@@ -34,7 +34,7 @@ public class ViewBudgetActivity extends Activity {
 
     private void setValueFromBundle(TextView view, String key) {
 
-        String text = "";
+        String text = "TEST";
 
         // Get value from Bundle
         String value = getIntent().getStringExtra(key);

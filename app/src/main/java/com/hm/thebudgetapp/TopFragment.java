@@ -1,9 +1,10 @@
 package com.hm.thebudgetapp;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,6 @@ import android.view.ViewGroup;
  */
 public class TopFragment extends Fragment {
 
-
     public TopFragment() {
         // Required empty public constructor
     }
@@ -23,15 +23,21 @@ public class TopFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_top, container, false);
-    }
+        RecyclerView recyclerView = (RecyclerView) inflater.inflate(R.layout.fragment_top, container, false);
 
+        Budget[] budgets = {new Budget("FOOD", "food", 0), new Budget("SHOPPING", "misc", 65.30),
+                new Budget("FOOD", "food", 0), new Budget("SHOPPING", "misc", 65.30),
+                new Budget("FOOD", "food", 0), new Budget("SHOPPING", "misc", 65.30),
+                new Budget("FOOD", "food", 0), new Budget("SHOPPING", "misc", 65.30)};
 
-    public void launchBudget(View view) {
+        BudgetAdapter adapter = new BudgetAdapter(budgets);
+        recyclerView.setAdapter(adapter);
 
-        Intent intent = new Intent(getActivity(), ViewBudgetActivity.class);
-        startActivity(intent);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+        return recyclerView;
+
     }
 
 
