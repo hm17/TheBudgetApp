@@ -7,56 +7,69 @@
     tools:context=".MainActivity">
 
 
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".MainActivity">
+
+            <TextView
+                android:id="@+id/viewStartingBalance"
+                android:layout_width="151dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="17dp"
+                android:gravity="center|top"
+                android:padding="16dp"
+                android:text="$100.00"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
 
-    <TextView
-        android:id="@+id/viewStartingBalance"
-        android:layout_width="151dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        android:layout_marginTop="17dp"
-        android:gravity="center|top"
-        android:padding="16dp"
-        android:text="$100.00"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+            <TextView
+                android:id="@+id/viewBudgetName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignTop="@+id/viewStartingBalance"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:gravity="left|top"
+                android:padding="16dp"
+                android:text="FOOD"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
+            <TextView
+                android:id="@+id/viewBudgetCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@+id/viewStartingBalance"
+                android:layout_gravity="center"
+                android:layout_marginEnd="24dp"
+                android:gravity="right|top"
+                android:padding="16dp"
+                android:text="food"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <TextView
-        android:id="@+id/viewBudgetName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/viewStartingBalance"
-        android:layout_gravity="center"
-        android:layout_marginStart="12dp"
-        android:gravity="left|top"
-        android:padding="16dp"
-        android:text="FOOD"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        </RelativeLayout>
 
-    <TextView
-        android:id="@+id/viewBudgetCategory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/viewStartingBalance"
-        android:layout_gravity="center"
-        android:layout_marginEnd="24dp"
-        android:gravity="right|top"
-        android:padding="16dp"
-        android:text="food"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        <android.support.v7.widget.RecyclerView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:scrollbars="vertical"
+            android:id="@+id/transaction_recycler"
+            android:layout_height="match_parent" />
 
-
-</RelativeLayout>
+    </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"

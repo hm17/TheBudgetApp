@@ -3,6 +3,8 @@ package com.hm.thebudgetapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
@@ -16,6 +18,20 @@ public class ViewBudgetActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_budget);
+
+
+        Transacation[] transacations = {new Transacation("711", "gas", 12.99, 1), new Transacation("711", "gas", 12.99, 1),
+                new Transacation("711", "gas", 12.99, 1), new Transacation("711", "gas", 12.99, 1),
+                new Transacation("711", "gas", 12.99, 1), new Transacation("711", "gas", 12.99, 1),
+                new Transacation("711", "gas", 12.99, 1),
+                new Transacation("711", "gas", 12.99, 1),new Transacation("711", "gas", 12.99, 1)};
+
+
+
+        RecyclerView recyclerView = findViewById(R.id.transaction_recycler);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        TransactionAdapter adapter = new TransactionAdapter(transacations);
+        recyclerView.setAdapter(adapter);
 
         populateBudgetView();
     }
