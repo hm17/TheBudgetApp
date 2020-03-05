@@ -95,17 +95,13 @@ public class BudgetDAO {
             // Move to first record in the Cursor
             if (cursor.moveToFirst()) {
                 for(int i=0; i<cursor.getCount(); i++) {
-                    Log.v("TopFragment", "cursor: " + cursor.getColumnName(0));
-                    Log.v("TopFragment", "cursor: " + cursor.toString());
-
                     // Get details from cursor
                     String nameText = cursor.getString(1);
-                    Log.v("TopFragment", "nameText: " + nameText);
                     String categoryText = cursor.getString(2);
-                    Log.v("TopFragment", "categoryText: " + categoryText);
                     Double balanceValue = Double.valueOf(cursor.getString(3));
-                    Log.v("TopFragment", "balanceValue: " + balanceValue);
+                    int id = Integer.valueOf(cursor.getString(0));
                     Budget budget = new Budget(nameText, categoryText, balanceValue);
+                    budget.setId(id);
                     budgets.add(budget);
 
                     cursor.moveToNext();

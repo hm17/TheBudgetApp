@@ -2,6 +2,7 @@ package com.hm.thebudgetapp;
 
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,17 +26,17 @@ public class BudgetAdapter extends RecyclerView.Adapter<BudgetAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final Budget myListData = dataset[position];
-
-        holder.nameView.setText(dataset[position].getName());
-        holder.categoryView.setText(dataset[position].getCategory());
-        holder.balanceView.setText("$" + String.valueOf(dataset[position].getBalance()));
+        final Budget budget = dataset[position];
+        holder.nameView.setText(budget.getName());
+        holder.categoryView.setText(budget.getCategory());
+        holder.balanceView.setText("$" + String.valueOf(budget.getBalance()));
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
+                Log.v("BudgetAdapter", String.valueOf(budget.getId()));
                 Intent intent = new Intent(view.getContext(), ViewBudgetActivity.class);
-                //intent.putExtra(PizzaDetailActivity.EXTRA_PIZZA_ID, position);
+                intent.putExtra(ViewBudgetActivity.BUDGET_ID, budget.getId());
                 view.getContext().startActivity(intent);
             }
         });
