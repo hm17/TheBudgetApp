@@ -10,6 +10,8 @@ public class Budget {
 
     private Transacation[] transactions;
 
+    public Budget(){}
+
     public Budget(String name, String category, double balance){
         this.name = name;
         this.category = category;

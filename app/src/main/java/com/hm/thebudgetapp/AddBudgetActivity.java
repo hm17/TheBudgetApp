@@ -7,7 +7,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.hm.thebudgetapp.DB.BudgetDAO;
+
 public class AddBudgetActivity extends Activity {
+
+    private BudgetDAO budgetDAO = new BudgetDAO();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +32,9 @@ public class AddBudgetActivity extends Activity {
         String nameVal = name.getText().toString();
         String startVal = startingBalance.getText().toString();
         String catVal = category.getText().toString();
+
+        Budget budget = new Budget(nameVal, catVal, Double.valueOf(startVal));
+        budgetDAO.saveBudget(this, budget);
 
         Log.v("Add Budget",  startVal + nameVal + catVal);
 
