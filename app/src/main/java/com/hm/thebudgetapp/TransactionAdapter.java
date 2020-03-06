@@ -25,11 +25,11 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final Transacation myListData = dataset[position];
+        final Transacation transacation = dataset[position];
 
-        holder.vendorView.setText(dataset[position].getVendor());
-        holder.descriptionView.setText(dataset[position].getDescription());
-        holder.amountView.setText("$" + String.valueOf(dataset[position].getAmount()));
+        holder.vendorView.setText(transacation.getVendor());
+        holder.descriptionView.setText(transacation.getDescription());
+        holder.amountView.setText("$" + String.valueOf(transacation.getAmount()));
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
 
             @Override

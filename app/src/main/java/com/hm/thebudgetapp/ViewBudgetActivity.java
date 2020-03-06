@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.hm.thebudgetapp.DB.BudgetDAO;
+import com.hm.thebudgetapp.DB.TransactionDAO;
+
+import java.util.List;
 
 public class ViewBudgetActivity extends Activity {
 
@@ -18,26 +21,39 @@ public class ViewBudgetActivity extends Activity {
     public static final String NAME = "name";
     public static final String START_BALANCE = "startingBalance";
 
+    private int id;
+    private TransactionAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_budget);
 
-
-        Transacation[] transacations = {new Transacation("711", "gas", 12.99, 1), new Transacation("711", "gas", 12.99, 1),
-                new Transacation("711", "gas", 12.99, 1), new Transacation("711", "gas", 12.99, 1),
-                new Transacation("711", "gas", 12.99, 1), new Transacation("711", "gas", 12.99, 1),
-                new Transacation("711", "gas", 12.99, 1),
-                new Transacation("711", "gas", 12.99, 1),new Transacation("711", "gas", 12.99, 1)};
-
-
+        populateBudgetView();
+        getTransactions();
 
         RecyclerView recyclerView = findViewById(R.id.transaction_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        TransactionAdapter adapter = new TransactionAdapter(transacations);
         recyclerView.setAdapter(adapter);
+    }
 
-        populateBudgetView();
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        //update whatever your list
+        adapter.notifyDataSetChanged();
+    }
+
+    private void getTransactions() {
+
+        // Get transactions from DB and add to adapter.
+        TransactionDAO transactionDAO = new TransactionDAO();
+        List<Transacation> results = transactionDAO.getTransactions(this, id);
+
+        Transacation[] transactions = results.toArray(new Transacation[results.size()]);
+        adapter = new TransactionAdapter(transactions);
+
     }
 
     private void populateBudgetView() {
@@ -46,7 +62,7 @@ public class ViewBudgetActivity extends Activity {
         TextView category = (TextView) findViewById(R.id.viewBudgetCategory);
 
         // If id is passed via bundle, get Budget from DB
-        int id = getIntent().getIntExtra(BUDGET_ID, -1);
+        id = getIntent().getIntExtra(BUDGET_ID, -1);
         Log.v("View Budget", String.valueOf(id));
         if(id >= 0) {
             BudgetDAO budgetDAO = new BudgetDAO();

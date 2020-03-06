@@ -43,6 +43,14 @@ public class TopFragment extends Fragment {
         return recyclerView;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        //update whatever your list
+        adapter.notifyDataSetChanged();
+    }
+
     void populateBudgetAdapter(){
         List<Budget> results = budgetDAO.getBudgets(getActivity());
         Budget[] budgets = results.toArray(new Budget[results.size()]);
