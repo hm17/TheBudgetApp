@@ -1,5 +1,7 @@
 package com.hm.thebudgetapp;
 
+import java.util.Date;
+
 public class Transacation {
 
     private int id;
@@ -8,6 +10,7 @@ public class Transacation {
     private String category;
     private double amount;
     private int budgetId;
+    private Date date;
 
     public Transacation(String vendor, String description, double amount, int budgetId) {
         this.vendor = vendor;
@@ -62,5 +65,11 @@ public class Transacation {
 
     public void setBudgetId(int budgetId) {
         this.budgetId = budgetId;
+    }
+
+    public Date getDate() { return date; }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

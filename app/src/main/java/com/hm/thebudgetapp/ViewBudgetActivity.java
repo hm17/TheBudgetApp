@@ -99,6 +99,7 @@ public class ViewBudgetActivity extends Activity {
 
     public void addTransaction(View view) {
         Intent intent = new Intent(this, AddTransactionActivity.class);
+        intent.putExtra(BUDGET_ID, id);
         startActivity(intent);
     }
 }

@@ -17,17 +17,26 @@
         />
 
     <EditText
+        android:id="@+id/amount"
         android:hint="@string/input_transaction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"/>
 
     <EditText
+        android:id="@+id/vendor"
         android:hint="@string/input_vendor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
+        android:id="@+id/description"
+        android:hint="@string/input_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/category"
         android:hint="@string/input_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

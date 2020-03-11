@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.Calendar;
+
 public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.ViewHolder> {
 
     private Transacation[] dataset;
@@ -27,6 +29,10 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Transacation transacation = dataset[position];
 
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(transacation.getDate());
+
+        holder.dateView.setText(calendar.get(Calendar.MONTH) + "/" + calendar.get(Calendar.DAY_OF_MONTH));
         holder.vendorView.setText(transacation.getVendor());
         holder.descriptionView.setText(transacation.getDescription());
         holder.amountView.setText("$" + String.valueOf(transacation.getAmount()));
@@ -50,6 +56,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         public TextView vendorView;
         public TextView descriptionView;
         public TextView amountView;
+        public TextView dateView;
         public RelativeLayout relativeLayout;
 
         public ViewHolder(View itemView) {
@@ -57,6 +64,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
             this.vendorView = (TextView) itemView.findViewById(R.id.vendorView);
             this.descriptionView = (TextView) itemView.findViewById(R.id.descriptionView);
             this.amountView = (TextView) itemView.findViewById(R.id.amountView);
+            this.dateView = (TextView) itemView.findViewById(R.id.dateView);
             relativeLayout = (RelativeLayout)itemView.findViewById(R.id.relativeLayout);
         }
     }

@@ -6,13 +6,24 @@
     android:background="@drawable/border">
 
     <TextView
-        android:id="@+id/vendorView"
+        android:id="@+id/dateView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="16dp"
-        android:text="Vendor"/>
+        android:layout_marginStart="22dp"
+        android:text="Date" />
+
+    <TextView
+        android:id="@+id/vendorView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="84dp"
+        android:gravity="center_vertical"
+        android:text="vendor"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/descriptionView"
@@ -20,7 +31,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_marginEnd="133dp"
+        android:layout_marginEnd="108dp"
         android:gravity="center_vertical"
         android:text="description"
         android:textSize="16sp" />
@@ -31,7 +42,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="18dp"
         android:gravity="center_vertical"
         android:text="$99"
         android:textSize="16sp" />

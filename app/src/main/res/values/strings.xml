@@ -12,6 +12,7 @@
     <string name="input_transaction">Enter Transaction Amount</string>
     <string name="input_vendor">Enter Vendor</string>
     <string name="input_category">Enter Category</string>
+    <string name="input_description">Enter Description</string>
 
     <string name="button_save">SAVE</string>
     <string name="button_add">ADD</string>
