@@ -21,12 +21,14 @@
         android:hint="@string/input_transaction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:maxLength="6"
         android:inputType="numberDecimal"/>
 
     <EditText
         android:id="@+id/vendor"
         android:hint="@string/input_vendor"
         android:layout_width="match_parent"
+        android:maxLength="10"
         android:layout_height="wrap_content" />
 
     <EditText
@@ -39,6 +41,7 @@
         android:id="@+id/category"
         android:hint="@string/input_category"
         android:layout_width="match_parent"
+        android:maxLength="6"
         android:layout_height="wrap_content" />
 
     <DatePicker

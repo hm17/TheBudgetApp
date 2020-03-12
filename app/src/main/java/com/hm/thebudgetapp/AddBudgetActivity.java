@@ -34,7 +34,8 @@ public class AddBudgetActivity extends Activity {
         String catVal = category.getText().toString();
 
         Budget budget = new Budget(nameVal, catVal, Double.valueOf(startVal));
-        budgetDAO.saveBudget(this, budget);
+        long resultId = budgetDAO.saveBudget(this, budget);
+        int budgetId = (int) resultId;
 
         Log.v("Add Budget",  startVal + nameVal + catVal);
 
@@ -43,6 +44,7 @@ public class AddBudgetActivity extends Activity {
         intent.putExtra(ViewBudgetActivity.START_BALANCE, startVal);
         intent.putExtra(ViewBudgetActivity.NAME, nameVal);
         intent.putExtra(ViewBudgetActivity.CATEGORY, catVal);
+        intent.putExtra(ViewBudgetActivity.BUDGET_ID, budgetId);
         startActivity(intent);
     }
 }

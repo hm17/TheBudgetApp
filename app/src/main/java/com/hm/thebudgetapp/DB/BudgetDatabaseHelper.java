@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class BudgetDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "budgetapp";
-    private static final int DB_VERSION = 4;
+    private static final int DB_VERSION = 5;
 
     public BudgetDatabaseHelper (Context context) {
 
@@ -42,6 +42,8 @@ public class BudgetDatabaseHelper extends SQLiteOpenHelper {
                     + "budgetId INTEGER, "
                     + "VENDOR TEXT, "
                     + "DESCRIPTION TEXT, "
+                    + "DATE TEXT, "
+                    + "CATEGORY TEXT, "
                     + "AMOUNT TEXT);");
         }
 
@@ -51,13 +53,18 @@ public class BudgetDatabaseHelper extends SQLiteOpenHelper {
             insertBudget(db, "Gas", "misc", String.valueOf(0));
             insertTransaction(db, 1, "Wawa", "gas", String.valueOf(47.88));
         }
-
+        /*
         if(oldVersion <5) {
             db.execSQL("ALTER TABLE BUDGET_TRANSACTION "
-                    + "ADD DATE TEXT;");
+                    + "ADD ;");
 
             db.execSQL("ALTER TABLE BUDGET_TRANSACTION "
                     + "ADD CATEGORY TEXT;");
+        }*/
+
+        if(oldVersion <6) {
+            db.execSQL("DELETE FROM BUDGET;");
+            db.execSQL("DELETE FROM BUDGET_TRANSACTION");
         }
 
     }

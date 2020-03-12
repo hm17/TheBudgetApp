@@ -44,6 +44,22 @@ public class BudgetDAO {
 
     }
 
+    public void updateBudget(Context context, int id, double balance) {
+        budgetDatabaseHelper = new BudgetDatabaseHelper(context);
+
+        try {
+            db = budgetDatabaseHelper.getWritableDatabase();
+
+            ContentValues budgetValues = new ContentValues();
+            budgetValues.put("BALANCE", balance);
+            db.update("BUDGET", budgetValues, "_id = ?", new String[] {String.valueOf(id)});
+        } catch(SQLiteException e) {
+            Log.v("TopFragment", "error: " + e.getMessage());
+            Toast toast = Toast.makeText(context, "Database unavailable", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+    }
+
     public Budget getBudget(Context context, int id)  {
         Budget budget = new Budget();
 

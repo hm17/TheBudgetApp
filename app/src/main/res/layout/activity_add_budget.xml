@@ -21,19 +21,22 @@
         android:hint="@string/input_startBalance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:maxLength="6"
         android:inputType="numberDecimal"/>
 
     <EditText
         android:id="@+id/budgetName"
         android:hint="@string/input_name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:maxLength="10"/>
 
     <EditText
         android:id="@+id/budgetCategory"
         android:hint="@string/input_category"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:maxLength="6"/>
 
     <Button
         android:id="@+id/saveBudget"

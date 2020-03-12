@@ -22,6 +22,7 @@ public class ViewBudgetActivity extends Activity {
     public static final String START_BALANCE = "startingBalance";
 
     private int id;
+    private Double balance;
     private TransactionAdapter adapter;
 
     @Override
@@ -69,8 +70,9 @@ public class ViewBudgetActivity extends Activity {
             Budget budget = budgetDAO.getBudget(this, Integer.valueOf(id));
 
             name.setText(budget.getName());
-            startingBalance.setText(String.valueOf(budget.getBalance()));
+            startingBalance.setText("$"+String.valueOf(budget.getBalance()));
             category.setText(budget.getCategory());
+            balance = budget.getBalance();
         }
         else {
             // Get Budget info from bundle
@@ -90,6 +92,10 @@ public class ViewBudgetActivity extends Activity {
         String value = getIntent().getStringExtra(key);
         if(value != null) {
             text = value;
+            if(key.equals(START_BALANCE)) {
+                text = "$"+value;
+                balance = Double.valueOf(value);
+            }
         }
 
         // Set it on view
@@ -100,6 +106,7 @@ public class ViewBudgetActivity extends Activity {
     public void addTransaction(View view) {
         Intent intent = new Intent(this, AddTransactionActivity.class);
         intent.putExtra(BUDGET_ID, id);
+        intent.putExtra(START_BALANCE, balance);
         startActivity(intent);
     }
 }

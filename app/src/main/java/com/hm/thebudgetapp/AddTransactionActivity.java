@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
+import com.hm.thebudgetapp.DB.BudgetDAO;
 import com.hm.thebudgetapp.DB.TransactionDAO;
 
 import java.util.Calendar;
@@ -53,6 +54,12 @@ public class AddTransactionActivity extends Activity {
         TransactionDAO transactionDAO = new TransactionDAO();
         long resultId = transactionDAO.saveTransaction(this, transacation);
         int id = (int) resultId;
+
+        // Update Balance and save to DB
+        Double startBalance = getIntent().getDoubleExtra(ViewBudgetActivity.START_BALANCE, 0);
+        Double newBalance = startBalance - transacation.getAmount();
+        BudgetDAO budgetDAO = new BudgetDAO();
+        budgetDAO.updateBudget(this, budgetID, newBalance);
 
 
         Intent intent = new Intent(this, ViewBudgetActivity.class);
